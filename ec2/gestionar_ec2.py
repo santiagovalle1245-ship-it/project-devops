@@ -5,9 +5,13 @@ import sys
 ec2 = boto3.client('ec2', region_name='us-east-1')
 
 def gestionar_instancia():
-    # sys.argv captura lo que escribes en la terminal
-    # sys.argv[1] es la ACCION (listar, iniciar, etc)
-    accion = sys.argv[1]
+    try:
+        accion = sys.argv[1]
+    except IndexError:
+        print(" Error: Faltan parámetros. Usa: listar, iniciar, detener o terminar.")
+        return
+
+    if accion == "listar":
 
     if accion == "listar":
         print(" Listando instancias...")
