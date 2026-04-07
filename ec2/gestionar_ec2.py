@@ -26,6 +26,11 @@ def gestionar_instancia():
         print(f" Deteniendo instancia {instance_id}...")
         ec2.stop_instances(InstanceIds=[instance_id])
 
+    elif accion == "terminar":
+        instance_id = sys.argv[2]
+        print(f" Terminando (destruyendo) instancia {instance_id}...")
+        ec2.terminate_instances(InstanceIds=[instance_id])
+
     else:
         print(" Acción no válida. Usa: listar, iniciar o detener.")
 
