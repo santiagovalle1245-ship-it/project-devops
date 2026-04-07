@@ -17,3 +17,8 @@ if [ ! -d "$DIRECTORIO" ]; then
     echo "Error: El directorio '$DIRECTORIO' no existe."
     exit 1
 fi
+
+# Compresión de archivos
+ARCHIVO_RESPALDO="backup_$FECHA.tar.gz"
+echo "Comprimiendo el directorio $DIRECTORIO..."
+tar -czf "$ARCHIVO_RESPALDO" "$DIRECTORIO"
